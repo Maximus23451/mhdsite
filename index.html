@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thesis Project Overview</title>
+  <!-- Using Bootstrap 5 CDN for styling -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom styling */
+    body { padding-top: 70px; }
+    .hero {
+      background: url('hero-image.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Project Title</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="#methodology">Methodology</a></li>
+          <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Thesis Project Title</h1>
+      <p>A brief description highlighting the focus and impact of the research.</p>
+      <a href="#overview" class="btn btn-primary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Project Overview Section -->
+  <section id="overview" class="container py-5">
+    <h2>Project Overview</h2>
+    <p>
+      This thesis project explores innovative approaches in [your research area]. The project aims to solve specific challenges in the domain by employing state-of-the-art methodologies and analysis techniques.
+    </p>
+  </section>
+
+  <!-- Methodology Section -->
+  <section id="methodology" class="bg-light py-5">
+    <div class="container">
+      <h2>Methodology</h2>
+      <p>
+        A detailed explanation of the research process, including data collection, experimental design, and analysis techniques.
+      </p>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Data Collection</h3>
+          <p>
+            Description of the tools and methods used to collect relevant data.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h3>Analysis</h3>
+          <p>
+            Overview of the analysis techniques and software tools used to derive insights from the collected data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section id="results" class="container py-5">
+    <h2>Results &amp; Findings</h2>
+    <p>
+      Key findings are summarized below along with illustrative visualizations.
+    </p>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="result1.jpg" class="card-img-top" alt="Result 1">
+          <div class="card-body">
+            <h5 class="card-title">Result 1</h5>
+            <p class="card-text">Brief explanation of result 1.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="result2.jpg" class="card-img-top" alt="Result 2">
+          <div class="card-body">
+            <h5 class="card-title">Result 2</h5>
+            <p class="card-text">Brief explanation of result 2.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <img src="result3.jpg" class="card-img-top" alt="Result 3">
+          <div class="card-body">
+            <h5 class="card-title">Result 3</h5>
+            <p class="card-text">Brief explanation of result 3.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="bg-light py-5">
+    <div class="container">
+      <h2>Meet the Team</h2>
+      <p>Introducing the project team, advisors, and collaborators.</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <img src="team1.jpg" class="card-img-top" alt="Team Member 1">
+            <div class="card-body">
+              <h5 class="card-title">Team Member 1</h5>
+              <p class="card-text">Short bio for team member 1.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat for additional team members as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container py-5">
+    <h2>Contact</h2>
+    <p>
+      For more information, inquiries, or potential collaborations, please reach out.
+    </p>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" placeholder="Your Name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" placeholder="you@example.com">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" class="form-control" rows="3" placeholder="Your message..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-3">
+    <div class="container text-center">
+      <p>&copy; 2025 Thesis Project. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
