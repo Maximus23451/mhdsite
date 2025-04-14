@@ -187,5 +187,57 @@
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript to load the YouTube video on click -->
+  <script>
+    document.getElementById("video-placeholder").addEventListener("click", function() {
+      var videoId = "V-_0ZkoSQDY"; // Replace with your actual YouTube video ID if needed
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", "https://www.youtube.com/embed/" + videoId + "?autoplay=1");
+      iframe.setAttribute("title", "YouTube video player");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      // Clear the placeholder and append the iframe
+      this.innerHTML = "";
+      this.appendChild(iframe);
+    });
+	
+	// Version download handling with fetch
+    document.querySelectorAll('.version-download').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const version = this.getAttribute('data-version');
+
+        // File URLs; ensure these files exist in the same directory as this HTML file.
+        const fileUrls = {
+          stable: 'V6.2--VIZSGA_PROJECT.pkt',
+          beta: 'PROJECT_V5.0.pkt',
+          legacy: 'PROJECT_V1.0.pkt',
+          unstable: '6.2_IPSEC.pkt',
+          routing: 'p_ip_addresses.xlsx'
+        };
+
+        fetch(fileUrls[version])
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.blob();
+          })
+          .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileUrls[version].split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+          })
+          .catch(error => {
+            console.error('Error downloading the file:', error);
+          });
+      });
+    }};
 </body>
 </html>
