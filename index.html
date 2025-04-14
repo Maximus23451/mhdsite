@@ -157,7 +157,7 @@
     </div>
   </section>
 
- <!-- Download Section -->
+  <!-- Download Section -->
   <section id="download" class="bg-dark text-light py-5">
     <div class="container">
       <h2 class="text-center mb-4">Download MHD Resources</h2>
@@ -228,8 +228,8 @@
       this.innerHTML = "";
       this.appendChild(iframe);
     });
-	
-	// Version download handling with fetch
+    
+    // Version download handling with fetch (if using version download buttons)
     document.querySelectorAll('.version-download').forEach(btn => {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
@@ -265,7 +265,7 @@
             console.error('Error downloading the file:', error);
           });
       });
-    }};
+    });
   </script>
 </body>
 </html>
