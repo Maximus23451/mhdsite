@@ -6,10 +6,12 @@
   <title>MHD - Macro Hard Doors</title>
   <!-- Bootstrap 5 CDN for styling -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons for download icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
     /* Darker color scheme */
     body {
-      padding-top: 70px; 
+      padding-top: 70px;
       background-color: #2c2c2c;
       color: #ddd;
     }
@@ -47,8 +49,8 @@
           <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
           <li class="nav-item"><a class="nav-link" href="#methodology">Methodology</a></li>
           <li class="nav-item"><a class="nav-link" href="#video">Video</a></li>
+          <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -103,7 +105,55 @@
     </p>
     <!-- Replace 'YOUR_VIDEO_ID' with your actual unlisted YouTube video ID -->
     <div class="ratio ratio-16x9">
-      <iframe src="https://www.youtube.com/embed/V-_0ZkoSQDY" title="Vizsga projekt védés 2025 MHD" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="bg-dark text-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Download MHD Resources</h2>
+      <p class="text-center mb-5">
+        Access the latest versions of Macro Hard Doors along with supporting documentation and resources.
+      </p>
+      <div class="row justify-content-center gy-4">
+        <!-- Download Card 1 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">MHD v1.0</h5>
+              <p class="card-text">Includes source code and basic documentation.</p>
+              <a href="https://vmhd.my.id/downloads/mhd-v1.0.zip" class="btn btn-primary">
+                <i class="bi bi-download"></i> Download ZIP
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Download Card 2 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">User Manual</h5>
+              <p class="card-text">PDF guide for installation and usage.</p>
+              <a href="https://vmhd.my.id/downloads/mhd-manual.pdf" class="btn btn-primary">
+                <i class="bi bi-download"></i> Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Download Card 3 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">Extended Resources</h5>
+              <p class="card-text">Additional tools, libraries, and documentation.</p>
+              <a href="https://vmhd.my.id/downloads/mhd-extended.zip" class="btn btn-primary">
+                <i class="bi bi-download"></i> Download ZIP
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -125,29 +175,6 @@
         <!-- Repeat for additional team members as needed -->
       </div>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="container py-5">
-    <h2>Contact</h2>
-    <p>
-      For more information, inquiries, or potential collaborations, please reach out.
-    </p>
-    <form>
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" id="name" class="form-control" placeholder="Your Name">
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" class="form-control" placeholder="you@example.com">
-      </div>
-      <div class="mb-3">
-        <label for="message" class="form-label">Message</label>
-        <textarea id="message" class="form-control" rows="3" placeholder="Your message..."></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
   </section>
 
   <!-- Footer -->
