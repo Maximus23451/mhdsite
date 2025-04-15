@@ -307,44 +307,6 @@
       this.innerHTML = "";
       this.appendChild(iframe);
     });
-    
-    // Version download handling with fetch (if using version download buttons)
-    document.querySelectorAll('.version-download').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const version = this.getAttribute('data-version');
-
-        // File URLs; ensure these files exist in the same directory as this HTML file.
-        const fileUrls = {
-          stable: 'V6.2--VIZSGA_PROJECT.pkt',
-          beta: 'PROJECT_V5.0.pkt',
-          legacy: 'PROJECT_V1.0.pkt',
-          unstable: '6.2_IPSEC.pkt',
-          routing: 'p_ip_addresses.xlsx'
-        };
-
-        fetch(fileUrls[version])
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.blob();
-          })
-          .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = fileUrls[version].split('/').pop();
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-          })
-          .catch(error => {
-            console.error('Error downloading the file:', error);
-          });
-      });
-    });
   </script>
 </body>
 </html>
