@@ -1,615 +1,634 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mosoni Márk - 13/C</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2c6e49;
-            --primary-dark: #1a4d32;
-            --primary-light: #4c956c;
-            --secondary: #f9c74f;
-            --accent: #f8961e;
-            --light: #f0faf5;
-            --dark: #333;
-            --gray: #666;
-            --white: #ffffff;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', 'Noto Sans', sans-serif;
-            background: linear-gradient(135deg, #eef7f4 0%, #ddeee9 100%);
-            color: var(--dark);
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234c956c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        /* Header Section */
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            padding: 40px 30px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            z-index: 1;
-        }
-
-        .header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-        }
-
-        .header::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 100%);
-            z-index: -1;
-        }
-
-        .header:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-        }
-
-        .header h2 {
-            margin: 0;
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .header p {
-            margin: 15px 0 25px;
-            font-size: 20px;
-            font-style: italic;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .music-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--white);
-            color: var(--primary);
-            border: none;
-            padding: 16px 36px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: var(--transition);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .music-button::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-        }
-
-        .music-button:hover {
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
-        }
-
-        .music-button:hover::before {
-            opacity: 1;
-        }
-
-        .music-button i {
-            margin-right: 10px;
-            font-size: 20px;
-        }
-
-        /* Content Section */
-        .content {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        /* Video Section */
-        .video-section {
-            flex: 1;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            background: var(--white);
-        }
-
-        .video-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-source {
-            margin: 15px;
-            font-size: 15px;
-            color: var(--gray);
-            text-align: center;
-            padding: 0 15px;
-        }
-
-        .video-source a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .video-source a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-
-        .video-source a:hover {
-            color: var(--primary-dark);
-        }
-
-        .video-source a:hover::after {
-            width: 100%;
-        }
-
-        /* Follow Section */
-        .follow-section {
-            flex: 1;
-            padding: 30px;
-            background-color: var(--white);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .follow-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .follow-section h3 {
-            margin: 0 0 25px;
-            color: var(--dark);
-            font-size: 26px;
-            font-weight: 700;
-            text-align: center;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .follow-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            border-radius: 3px;
-        }
-
-        .social-media {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 20px;
-            background: var(--light);
-            border-radius: 15px;
-            transition: var(--transition);
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .social-media:hover {
-            background: #e5f4ee;
-            transform: translateX(8px);
-        }
-
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .social-icon i {
-            font-size: 32px;
-            color: var(--white);
-        }
-
-        .social-text {
-            flex: 1;
-            margin-left: 20px;
-        }
-
-        .platform-name {
-            display: block;
-            font-size: 22px;
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        .follow-text {
-            display: block;
-            font-size: 16px;
-            color: var(--gray);
-            margin-top: 8px;
-        }
-
-        .arrow-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        .arrow-link:hover {
-            background: var(--primary-dark);
-            transform: rotate(-15deg) scale(1.1);
-        }
-
-        .arrow-link i {
-            font-size: 22px;
-            color: var(--white);
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 40px;
-            padding: 25px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .footer p {
-            margin: 5px 0;
-            font-size: 16px;
-            opacity: 0.9;
-            max-width: 600px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .footer-links a {
-            color: var(--white);
-            font-size: 24px;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        .float {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 900px) {
-            .content {
-                flex-direction: column;
-            }
-            
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h2 {
-                font-size: 30px;
-            }
-            
-            .header p {
-                font-size: 18px;
-            }
-            
-            .music-button {
-                padding: 14px 28px;
-                font-size: 17px;
-            }
-            
-            .follow-section {
-                padding: 25px 20px;
-            }
-            
-            .follow-section h3 {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            
-            .header {
-                padding: 25px 15px;
-            }
-            
-            .header h2 {
-                font-size: 26px;
-            }
-            
-            .header p {
-                font-size: 16px;
-            }
-            
-            .social-media {
-                flex-direction: column;
-                text-align: center;
-                padding: 25px;
-            }
-            
-            .social-text {
-                margin: 15px 0;
-                text-align: center;
-            }
-            
-            .arrow-link {
-                width: 100%;
-                border-radius: 8px;
-                padding: 12px;
-                margin-top: 10px;
-            }
-            
-            .footer {
-                padding: 20px 15px;
-            }
-            
-            .footer-links {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .header h2 {
-                font-size: 22px;
-            }
-            
-            .header p {
-                font-size: 15px;
-            }
-            
-            .music-button {
-                padding: 12px 24px;
-                font-size: 16px;
-            }
-            
-            .footer-logo {
-                font-size: 24px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MHD - Macro Hard Doors</title>
+  <meta property="og:description" content="💻A híres MHD csapat📈" />
+  <meta property="og:image" content="https://images.guns.lol/vtg0K.png"/>
+  <link rel="icon" type="image/png" href="https://images.guns.lol/vtg0K.png" />
+  <!-- Bootstrap 5 CDN for styling -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Darker color scheme */
+    body {
+      padding-top: 70px; 
+      background-color: #2c2c2c;
+      color: #ddd;
+    }
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.guns.lol/vtg0K.png') center/cover no-repeat;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+      opacity: 0.8;
+      z-index: -1;
+    }
+    .bg-custom {
+      background-color: #333;
+    }
+    footer {
+      background-color: #1a1a1a;
+      color: #bbb;
+      padding: 20px 0;
+    }
+    a.nav-link, a.navbar-brand {
+      color: #ddd !important;
+    }
+    /* Video container styles */
+    .video-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding-bottom: 56.25%; /* 16:9 Ratio */
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    .video-container .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      margin-top: -40px;
+      margin-left: -40px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_play_button_icon_%282013%E2%80%932017%29.svg/640px-YouTube_play_button_icon_%282013%E2%80%932017%29.svg.png') no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    
+    /* Discord Widget Styles */
+    .discord-card {
+      background: rgba(40, 40, 40, 0.9);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(88, 101, 242, 0.3);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .discord-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(88, 101, 242, 0.3);
+    }
+    
+    .discord-header {
+      background: rgba(20, 20, 20, 0.95);
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #404040;
+    }
+    
+    .discord-logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      background: #5865F2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .discord-logo i {
+      font-size: 1.5rem;
+      color: white;
+    }
+    
+    .discord-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #e0e0e0;
+    }
+    
+    .discord-status {
+      font-size: 0.9rem;
+      color: #57F287;
+      margin-top: 3px;
+    }
+    
+    .discord-widget-container {
+      height: 500px;
+    }
+    
+    .discord-widget {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .discord-widget iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .discord-footer {
+      background: rgba(20, 20, 20, 0.95);
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    .discord-join-btn {
+      background: #5865F2;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+    
+    .discord-join-btn:hover {
+      background: #4752c4;
+    }
+    
+    /* Card hover effects */
+    .card {
+      transition: all 0.3s ease;
+      border: 1px solid #444;
+      overflow: hidden;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      border-color: #5865F2;
+    }
+    
+    /* Animation for sections */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-section {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    /* Section styling */
+    section {
+      padding: 80px 0;
+    }
+    
+    section h2 {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+    }
+    
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: #5865F2;
+    }
+    
+    /* Navbar styling */
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <!-- Header Section -->
-        <div class="header float">
-            <h2>13/C</h2>
-            <p>“Még mindig fáj Trianon”</p>
-            <a href="https://www.youtube.com/watch?v=bGaAgP3eRQM" 
-               class="music-button pulse" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <i class="fas fa-music"></i> Ballagós zene
-            </a>
-        </div>
-
-        <!-- Content Section -->
-        <div class="content">
-            <!-- Video Section -->
-            <div class="video-section">
-                <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/Qmwa0r9D3NE" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                    ></iframe>
-                </div>
-                <p class="video-source">Megtekinthető itt: <a href="https://www.youtube.com/watch?v=Qmwa0r9D3NE">YouTube</a></p>
-            </div>
-
-            <!-- Follow Section -->
-            <div class="follow-section">
-                <h3>Kövess engem</h3>
-                <div class="social-media" onclick="window.open('https://www.instagram.com/amosoni_', '_blank')">
-                    <div class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="social-text">
-                        <span class="platform-name">Instagram</span>
-                        <span class="follow-text">Ha már itt vagy, követhetnél!</span>
-                    </div>
-                    <div class="arrow-link">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-logo">MOSONI MÁRK</div>
-            <p>13/C osztály - Ballagás 2025</p>
-            <p>„Az emlékek örökké velünk maradnak”</p>
-            <div class="footer-links">
-                <a href="https://www.instagram.com/amosoni_" target="_blank"><i class="fab fa-instagram"></i></a>
-               <!-- <a href="" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="mailto:example@example.com"><i class="fas fa-envelope"></i></a> -->
-            </div>
-        </div>
+      <a class="navbar-brand" href="#">MHD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="#us">Our Contacts</a></li>
+          <li class="nav-item"><a class="nav-link" href="#video">Video</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+          <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <script>
-        // Simple animations on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add animation class to elements
-            const header = document.querySelector('.header');
-            const videoSection = document.querySelector('.video-section');
-            const followSection = document.querySelector('.follow-section');
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-3 mb-4">MHD - Macro Hard Doors</h1>
+      <p class="lead mb-4">Advanced Cybersecurity Solutions for Modern Enterprises</p>
+      <a href="#overview" class="btn btn-primary btn-lg">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Project Overview Section -->
+  <section id="overview" class="container py-5 animate-section">
+    <h2>Project Overview</h2>
+    <p>
+      Hi! And welcome to our project page; this is MHD. 
+	  This project was created for our finals. 
+	  MHD is a medium-sized (fictional) company with three offices spread throughout the city of Budapest and is a cybersecurity company. We have a vast array of devices, VLANs, WLANs, and much more.
+	  <p>To name the offices:</p>
+	  <p>The Right Office, which was configured by Kurucz Zoltán</p>
+	  <p>The Middle Office, which was configured by Me Szabó Márton</p>
+	  <p>And last, but not least, the left office was configured by Zubán Máté.</p>
+	  Each office is equipped with state-of-the-art technology designed to enhance our cybersecurity measures and ensure the safety of our clients data. Our team, composed of highly skilled professionals, is dedicated to staying ahead of emerging threats in the digital landscape.
+    </p>
+    
+    <div class="row mt-5">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 bg-dark text-light">
+          <div class="card-body">
+            <h3 class="card-title">The Right Office</h3>
+            <p class="card-text">Configured by Kurucz Zoltán</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 bg-dark text-light">
+          <div class="card-body">
+            <h3 class="card-title">The Middle Office</h3>
+            <p class="card-text">Configured by Szabó Márton</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 bg-dark text-light">
+          <div class="card-body">
+            <h3 class="card-title">The Left Office</h3>
+            <p class="card-text">Configured by Zubán Máté</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Contacts Section -->
+  <section id="us" class="bg-custom py-5 animate-section">
+    <div class="container">
+      <h2>Our Contacts Info</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-dark text-light">
+            <img src="https://images.guns.lol/TjaKC.jpg" class="card-img-top" alt="Kuci">
+            <div class="card-body text-center">
+              <h5 class="card-title">Kurucz Zoltán</h5>
+              <div class="d-flex justify-content-center mt-3">
+                <a class="btn btn-outline-light mx-2" href="https://github.com/zoligamer" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-dark text-light">
+            <img src="https://images.guns.lol/fJD7M.jpg" class="card-img-top" alt="Pedro">
+            <div class="card-body text-center">
+              <h5 class="card-title">Szabó Márton</h5>
+              <div class="d-flex justify-content-center mt-3">
+                <a class="btn btn-outline-light mx-2" href="https://github.com/Maximus23451" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-dark text-light">
+            <img src="https://images.guns.lol/m8cxE.jpg" class="card-img-top" alt="Zubi">
+            <div class="card-body text-center">
+              <h5 class="card-title">Zubán Máté</h5>
+              <div class="d-flex justify-content-center mt-3">
+                <a class="btn btn-outline-light mx-2" href="https://github.com/mateszornyu" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section id="video" class="container py-5 animate-section">
+    <h2>Project Video Overview</h2>
+    <p class="mb-4">
+      Watch our brief video presentation to learn more about the MHD project. This overview explains our project’s motivation, process, and expected impact.
+    </p>
+    <!-- Video Container with Thumbnail Overlay -->
+    <div id="video-placeholder" class="video-container" 
+         style="background-image: url('https://images.guns.lol/rBK88.png');">
+      <div class="play-button"></div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="bg-custom py-5 animate-section">
+    <div class="container">
+      <h2>Meet the Team</h2>
+      <p class="mb-4">Introducing the project team and the collaborators behind MHD.</p>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-dark text-light">
+            <img src="https://images.guns.lol/TjaKC.jpg" class="card-img-top" alt="Kurucz Zoltán">
+            <div class="card-body">
+              <h5 class="card-title">Kurucz Zoltán</h5>
+              <p class="card-text">Hi! I'm Kurucz Zoltán. I'm the team leader for this project. And I was responsible for the ISP and the Right Office.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-dark text-light">
+            <img src="https://images.guns.lol/fJD7M.jpg" class="card-img-top" alt="Szabó Márton">
+            <div class="card-body">
+              <h5 class="card-title">Szabó Márton</h5>
+              <p class="card-text">Hi! You may know me as Pedro. I was responsible for the Middle Office and the websites for the project.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-dark text-light">
+            <img src="https://images.guns.lol/m8cxE.jpg" class="card-img-top" alt="Zubán Máté">
+            <div class="card-body">
+              <h5 class="card-title">Zubán Máté</h5>
+              <p class="card-text">Hi! I'm Zubán Máté. I was responsible for the Left Office and WLC in this project.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section with Discord Widget -->
+  <section id="community" class="container py-5 animate-section">
+    <h2>Join Our Community</h2>
+    <p class="lead mb-4">Connect with our team and other cybersecurity enthusiasts on Discord</p>
+    
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="discord-card">
+          <div class="discord-header">
+            <div class="discord-logo">
+              <i class="fab fa-discord"></i>
+            </div>
+            <div>
+              <div class="discord-title">MHD COMMUNITY</div>
+              <div class="discord-status">
+                <i class="fas fa-circle" style="color: #57F287; font-size: 0.7rem;"></i> 
+                Online now
+              </div>
+            </div>
+          </div>
+          
+          <div class="discord-widget-container">
+            <div class="discord-widget">
+              <iframe src="https://discord.com/widget?id=1280998425537810453&theme=dark" 
+                      allowtransparency="true" frameborder="0" 
+                      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+              </iframe>
+            </div>
+          </div>
+          
+          <div class="discord-footer">
+            <div>Join our Discord community!</div>
+            <button class="discord-join-btn">Join Server</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 bg-dark text-light">
+          <div class="card-body">
+            <h3 class="card-title">Why Join Our Community?</h3>
+            <ul class="list-group list-group-flush bg-transparent">
+              <li class="list-group-item bg-transparent text-light border-secondary">
+                <i class="fas fa-comments me-2 text-primary"></i> Real-time discussions with the team
+              </li>
+              <li class="list-group-item bg-transparent text-light border-secondary">
+                <i class="fas fa-download me-2 text-primary"></i> Get early access to new releases
+              </li>
+              <li class="list-group-item bg-transparent text-light border-secondary">
+                <i class="fas fa-question-circle me-2 text-primary"></i> Technical support and troubleshooting
+              </li>
+              <li class="list-group-item bg-transparent text-light border-secondary">
+                <i class="fas fa-lightbulb me-2 text-primary"></i> Share ideas and suggestions
+              </li>
+              <li class="list-group-item bg-transparent text-light border-secondary">
+                <i class="fas fa-calendar-alt me-2 text-primary"></i> Stay updated on project milestones
+              </li>
+            </ul>
             
-            setTimeout(() => {
-                header.style.animation = 'fadeIn 0.6s ease-out forwards';
-            }, 100);
-            
-            setTimeout(() => {
-                videoSection.style.animation = 'fadeIn 0.6s ease-out forwards';
-            }, 300);
-            
-            setTimeout(() => {
-                followSection.style.animation = 'fadeIn 0.6s ease-out forwards';
-            }, 500);
-            
-            // Add floating effect to header on scroll
-            window.addEventListener('scroll', function() {
-                const scrollPosition = window.scrollY;
-                header.style.transform = `translateY(${scrollPosition * 0.2}px)`;
-            });
+            <div class="mt-4">
+              <h4>Stay Connected</h4>
+              <div class="d-flex mt-3">
+                <a class="btn btn-outline-light me-2" href="#">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a class="btn btn-outline-light me-2" href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a class="btn btn-outline-light me-2" href="#">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a class="btn btn-outline-light" href="#">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="bg-dark text-light py-5 animate-section">
+    <div class="container">
+      <h2 class="text-center mb-4">Download MHD Resources</h2>
+      <p class="text-center mb-5">
+        Here you can download the documentation, Excel, and the latest .pkt files, and as a reminder from where it started, you can download the very first version of our project.
+      </p>
+      <div class="row justify-content-center gy-4">
+        <!-- Download Card 1 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">MHD v9.0</h5>
+              <p class="card-text">This is the latest stable version.</p>
+              <a href="https://mega.nz/file/94tiVLqQ#3_mRZH99BGpU5GfT9AM68YfjGnldqjc1qRh6S_jFwCE" class="btn btn-primary">
+                <i class="fas fa-download me-2"></i> Download PKT
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Download Card 2 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">IP address table</h5>
+              <p class="card-text">This Excel contains all the IP addresses and VLANs.</p>
+              <a href="https://mega.nz/file/gtt0QQJT#9W2Npn3-1J4ccxrd9ukYQhw8LU7_ZBSoQbxrV6Ue5y8" class="btn btn-primary">
+                <i class="fas fa-download me-2"></i> Download xlsx
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Download Card 3 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">Unstable</h5>
+              <p class="card-text">This version is not fully configured, so it is unstable.</p>
+              <a href="https://mega.nz/file/pg8VEZgK#0MXF6JQXK11PcdkPiuh2bq7gjb2Cx-hoz9q7vDx3v9o" class="btn btn-primary">
+                <i class="fas fa-download me-2"></i> Download PKT
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Download Card 4 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">MHD v1.0</h5>
+              <p class="card-text">This is the very first stable version. (It's nothing much.)</p>
+              <a href="https://mega.nz/file/cw0F3Zya#6ioY8UscuhDQhfx-ZYhymSdXetXppi5mCD9XjLdjS3A" class="btn btn-primary">
+                <i class="fas fa-download me-2"></i> Download PKT
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Download Card 5 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">Every thing in a zip.</h5>
+              <p class="card-text">This .zip file contains every relevant file. And it is from our GitHub repository.</p>
+              <a href="https://mega.nz/file/xkMUCTpa#qXvmD_Jqujj2z_Obzx7WUeebbp2xttAQczouQ9PgpTo" class="btn btn-primary">
+                <i class="fas fa-download me-2"></i> Download ZIP
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Download Card 6 -->
+        <div class="col-md-4">
+          <div class="card bg-secondary text-light shadow">
+            <div class="card-body text-center">
+              <h5 class="card-title">Documentation for our project.</h5>
+              <p class="card-text">This not the final version yet.</p>
+              <a href="https://mega.nz/file/V0lDgbyZ#a1zIIef-6YVebwNJtrEGQSTYTJ6hVLccaFOzh52ur-Q" class="btn btn-primary">
+                <i class="fas fa-download me-2"></i> Download DOC
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-3">
+    <div class="container text-center">
+      <p>&copy; 2025 MHD - Macro Hard Doors. All rights reserved.</p>
+      <div class="mt-2">
+        <a href="#" class="text-light me-3"><i class="fab fa-discord"></i></a>
+        <a href="#" class="text-light me-3"><i class="fab fa-github"></i></a>
+        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-light"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- JavaScript to load the YouTube video on click -->
+  <script>
+    document.getElementById("video-placeholder").addEventListener("click", function() {
+      var videoId = "uXE08tG9RIw"; // Replace with your actual YouTube video ID if needed
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", "https://www.youtube.com/embed/" + videoId + "?autoplay=1");
+      iframe.setAttribute("title", "YouTube video player");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      // Clear the placeholder and append the iframe
+      this.innerHTML = "";
+      this.appendChild(iframe);
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
-    </script>
+      });
+    });
+    
+    // Discord join button functionality
+    document.querySelector('.discord-join-btn').addEventListener('click', function() {
+      window.open('https://discord.gg/invite-link', '_blank');
+    });
+    
+    // Animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-section');
+        }
+      });
+    });
+    
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
